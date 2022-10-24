@@ -1,20 +1,64 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
+using System.IO;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Object_Creation
 {
-    public partial class Form1 : Form
+    public partial class mainPage : Form
     {
-        public Form1()
+        String java, postgres;
+        public mainPage()
         {
             InitializeComponent();
+        }
+
+        private void createUser_Click(object sender, EventArgs e)
+        {
+            var createUser = new objCreation();
+            createUser.Show();
+        }
+
+        private void copyRights_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("mailto:dhananjayan.sb@zohocorp.com");
+        }
+
+        public void startProduct_Click(object sender, EventArgs e)
+        {
+            ///MessageBox.Show(productPath);
+            var path = @prodPath.Text;
+            var processStartInfo = new ProcessStartInfo();
+            processStartInfo.WorkingDirectory = path;
+            processStartInfo.FileName = "cmd.exe";
+            processStartInfo.Arguments = "/C runAsAdmin.bat";
+            Process proc = Process.Start(processStartInfo);
+        }
+
+
+        public void downProduct_Click(object sender, EventArgs e)
+        {
+            var path = @prodPath.Text;
+            var processStartInfo = new ProcessStartInfo();
+            processStartInfo.WorkingDirectory = path;
+            processStartInfo.FileName = "cmd.exe";
+            processStartInfo.Arguments = "/C shutdown.bat";
+            Process proc = Process.Start(processStartInfo);
+        }
+
+        private void killAll_Click(object sender, EventArgs e)
+        {
+              var path = @prodPath.Text;
+            Process proc = new Process();
+            var processStartInfo = new ProcessStartInfo();
+            processStartInfo.WorkingDirectory = path;
+            processStartInfo.FileName = "cmd.exe";
+            processStartInfo.Arguments = "/C taskkill /f /im java.exe";
+            proc = Process.Start(processStartInfo);
+            processStartInfo.FileName = "cmd.exe";
+            processStartInfo.Arguments = "/C taskkill /f /im postgres.exe";
+            proc = Process.Start(processStartInfo);
         }
     }
 }
