@@ -31,14 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(objCreation));
             this.create = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.dcName = new System.Windows.Forms.TextBox();
-            this.password = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.userName = new System.Windows.Forms.TextBox();
+            this.password = new System.Windows.Forms.TextBox();
+            this.serverIp = new System.Windows.Forms.TextBox();
             this.objType = new System.Windows.Forms.ComboBox();
+            this.textbox14 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -54,10 +54,14 @@
             this.grpCategory = new System.Windows.Forms.ComboBox();
             this.grpScope = new System.Windows.Forms.ComboBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.domName = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.objCount)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // create
@@ -80,79 +84,49 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.54988F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.45012F));
-            this.tableLayoutPanel1.Controls.Add(this.dcName, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.password, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.textBox3, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.textBox4, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.textBox5, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.textBox2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.userName, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.password, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.serverIp, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.objType, 1, 3);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(9, 42);
+            this.tableLayoutPanel1.Controls.Add(this.textbox14, 0, 2);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(10, 42);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.36842F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.63158F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.31507F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.68493F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(411, 138);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(408, 148);
             this.tableLayoutPanel1.TabIndex = 3;
-            // 
-            // dcName
-            // 
-            this.dcName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dcName.Location = new System.Drawing.Point(145, 79);
-            this.dcName.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
-            this.dcName.Name = "dcName";
-            this.dcName.Size = new System.Drawing.Size(263, 22);
-            this.dcName.TabIndex = 8;
-            this.dcName.TextChanged += new System.EventHandler(this.dcName_TextChanged);
-            // 
-            // password
-            // 
-            this.password.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.password.Location = new System.Drawing.Point(145, 41);
-            this.password.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
-            this.password.Name = "password";
-            this.password.PasswordChar = '*';
-            this.password.Size = new System.Drawing.Size(263, 22);
-            this.password.TabIndex = 8;
-            this.password.TextChanged += new System.EventHandler(this.password_TextChanged);
             // 
             // textBox3
             // 
+            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox3.Cursor = System.Windows.Forms.Cursors.No;
             this.textBox3.Font = new System.Drawing.Font("Source Code Pro", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox3.Location = new System.Drawing.Point(3, 113);
+            this.textBox3.Location = new System.Drawing.Point(4, 117);
             this.textBox3.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
             this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(132, 24);
             this.textBox3.TabIndex = 4;
             this.textBox3.Text = "Object Type";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Cursor = System.Windows.Forms.Cursors.No;
-            this.textBox4.Font = new System.Drawing.Font("Source Code Pro", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox4.Location = new System.Drawing.Point(3, 79);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(132, 24);
-            this.textBox4.TabIndex = 5;
-            this.textBox4.Text = "DC Name";
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox5
             // 
             this.textBox5.Cursor = System.Windows.Forms.Cursors.No;
             this.textBox5.Font = new System.Drawing.Font("Source Code Pro", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox5.Location = new System.Drawing.Point(3, 41);
+            this.textBox5.Location = new System.Drawing.Point(3, 42);
             this.textBox5.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
             this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(132, 24);
             this.textBox5.TabIndex = 6;
             this.textBox5.Text = "Password";
@@ -167,20 +141,42 @@
             this.textBox2.Location = new System.Drawing.Point(3, 6);
             this.textBox2.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(132, 24);
             this.textBox2.TabIndex = 0;
-            this.textBox2.Text = "User Name";
+            this.textBox2.Text = "Administrator";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // userName
             // 
             this.userName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userName.Location = new System.Drawing.Point(145, 6);
-            this.userName.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.userName.Location = new System.Drawing.Point(143, 8);
+            this.userName.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.userName.Name = "userName";
-            this.userName.Size = new System.Drawing.Size(263, 22);
+            this.userName.Size = new System.Drawing.Size(262, 22);
             this.userName.TabIndex = 7;
-            this.userName.TextChanged += new System.EventHandler(this.userName_TextChanged);
+            this.userName.Click += new System.EventHandler(this.userName_MouseClicked);
+            // 
+            // password
+            // 
+            this.password.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password.Location = new System.Drawing.Point(143, 44);
+            this.password.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            this.password.Name = "password";
+            this.password.PasswordChar = '*';
+            this.password.Size = new System.Drawing.Size(262, 22);
+            this.password.TabIndex = 8;
+            // 
+            // serverIp
+            // 
+            this.serverIp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.serverIp.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.serverIp.Location = new System.Drawing.Point(143, 82);
+            this.serverIp.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            this.serverIp.Name = "serverIp";
+            this.serverIp.Size = new System.Drawing.Size(262, 22);
+            this.serverIp.TabIndex = 9;
+            this.serverIp.Click += new System.EventHandler(this.serverIp_MouseClicked);
             // 
             // objType
             // 
@@ -191,35 +187,48 @@
             "Computer",
             "Contact",
             "OU"});
-            this.objType.Location = new System.Drawing.Point(145, 113);
-            this.objType.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.objType.Location = new System.Drawing.Point(143, 118);
+            this.objType.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.objType.Name = "objType";
             this.objType.Size = new System.Drawing.Size(155, 21);
             this.objType.TabIndex = 9;
-            this.objType.SelectedIndexChanged += new System.EventHandler(this.objType_SelectedIndexChanged);
+            // 
+            // textbox14
+            // 
+            this.textbox14.Cursor = System.Windows.Forms.Cursors.No;
+            this.textbox14.Font = new System.Drawing.Font("Source Code Pro", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textbox14.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.textbox14.Location = new System.Drawing.Point(3, 80);
+            this.textbox14.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.textbox14.Name = "textbox14";
+            this.textbox14.ReadOnly = true;
+            this.textbox14.Size = new System.Drawing.Size(132, 24);
+            this.textbox14.TabIndex = 9;
+            this.textbox14.Text = "LDAP Server IP";
+            this.textbox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox6
             // 
             this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox6.Cursor = System.Windows.Forms.Cursors.No;
-            this.textBox6.Font = new System.Drawing.Font("Source Code Pro", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(90, 12);
+            this.textBox6.Font = new System.Drawing.Font("Source Code Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Location = new System.Drawing.Point(68, 12);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(240, 24);
+            this.textBox6.Size = new System.Drawing.Size(240, 17);
             this.textBox6.TabIndex = 4;
-            this.textBox6.Text = "Machine Details";
+            this.textBox6.Text = "Server Details";
             this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox1
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Cursor = System.Windows.Forms.Cursors.No;
-            this.textBox1.Font = new System.Drawing.Font("Source Code Pro", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(90, 197);
+            this.textBox1.Font = new System.Drawing.Font("Source Code Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(68, 205);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(240, 24);
+            this.textBox1.Size = new System.Drawing.Size(240, 17);
             this.textBox1.TabIndex = 5;
             this.textBox1.Text = "Common Attribute";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -236,7 +245,7 @@
             this.tableLayoutPanel2.Controls.Add(this.textBox12, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.objName, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.objCount, 1, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(9, 227);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(9, 239);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.36842F));
@@ -258,7 +267,6 @@
             this.ouPath.Name = "ouPath";
             this.ouPath.Size = new System.Drawing.Size(263, 24);
             this.ouPath.TabIndex = 8;
-            this.ouPath.TextChanged += new System.EventHandler(this.ouPath_TextChanged_1);
             // 
             // textBox10
             // 
@@ -268,6 +276,7 @@
             this.textBox10.Location = new System.Drawing.Point(3, 75);
             this.textBox10.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
             this.textBox10.Name = "textBox10";
+            this.textBox10.ReadOnly = true;
             this.textBox10.Size = new System.Drawing.Size(132, 24);
             this.textBox10.TabIndex = 5;
             this.textBox10.Text = "OU Path";
@@ -281,6 +290,7 @@
             this.textBox11.Location = new System.Drawing.Point(3, 39);
             this.textBox11.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
             this.textBox11.Name = "textBox11";
+            this.textBox11.ReadOnly = true;
             this.textBox11.Size = new System.Drawing.Size(132, 24);
             this.textBox11.TabIndex = 6;
             this.textBox11.Text = "Object Count";
@@ -295,6 +305,7 @@
             this.textBox12.Location = new System.Drawing.Point(3, 6);
             this.textBox12.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
             this.textBox12.Name = "textBox12";
+            this.textBox12.ReadOnly = true;
             this.textBox12.Size = new System.Drawing.Size(132, 24);
             this.textBox12.TabIndex = 0;
             this.textBox12.Text = "Object Name";
@@ -308,7 +319,6 @@
             this.objName.Name = "objName";
             this.objName.Size = new System.Drawing.Size(263, 24);
             this.objName.TabIndex = 7;
-            this.objName.TextChanged += new System.EventHandler(this.objName_TextChanged);
             // 
             // objCount
             // 
@@ -323,23 +333,22 @@
             this.objCount.Name = "objCount";
             this.objCount.Size = new System.Drawing.Size(120, 24);
             this.objCount.TabIndex = 9;
-            this.objCount.ValueChanged += new System.EventHandler(this.objCount_ValueChanged_1);
             // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.79319F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.20681F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.66667F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.33333F));
             this.tableLayoutPanel3.Controls.Add(this.textBox7, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.textBox8, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.grpCategory, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.grpScope, 1, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(9, 379);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(37, 460);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(411, 68);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(300, 68);
             this.tableLayoutPanel3.TabIndex = 7;
             // 
             // textBox7
@@ -350,7 +359,8 @@
             this.textBox7.Location = new System.Drawing.Point(3, 6);
             this.textBox7.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(132, 24);
+            this.textBox7.ReadOnly = true;
+            this.textBox7.Size = new System.Drawing.Size(128, 24);
             this.textBox7.TabIndex = 8;
             this.textBox7.Text = "Group Scope";
             this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -363,7 +373,8 @@
             this.textBox8.Location = new System.Drawing.Point(3, 40);
             this.textBox8.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(132, 24);
+            this.textBox8.ReadOnly = true;
+            this.textBox8.Size = new System.Drawing.Size(128, 24);
             this.textBox8.TabIndex = 9;
             this.textBox8.Text = "Group Category";
             this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -374,45 +385,85 @@
             this.grpCategory.Items.AddRange(new object[] {
             "Security",
             "Distribution"});
-            this.grpCategory.Location = new System.Drawing.Point(146, 42);
+            this.grpCategory.Location = new System.Drawing.Point(137, 42);
             this.grpCategory.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.grpCategory.Name = "grpCategory";
             this.grpCategory.Size = new System.Drawing.Size(155, 21);
             this.grpCategory.TabIndex = 11;
-            this.grpCategory.SelectedIndexChanged += new System.EventHandler(this.grpCategory_SelectedIndexChanged);
             // 
             // grpScope
             // 
             this.grpScope.FormattingEnabled = true;
             this.grpScope.Items.AddRange(new object[] {
-            "DomainLocal",
+            "Local",
             "Global",
             "Universal"});
-            this.grpScope.Location = new System.Drawing.Point(146, 8);
+            this.grpScope.Location = new System.Drawing.Point(137, 8);
             this.grpScope.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.grpScope.Name = "grpScope";
             this.grpScope.Size = new System.Drawing.Size(155, 21);
             this.grpScope.TabIndex = 10;
-            this.grpScope.SelectedIndexChanged += new System.EventHandler(this.grpScope_SelectedIndexChanged);
             // 
             // textBox9
             // 
             this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox9.Cursor = System.Windows.Forms.Cursors.No;
-            this.textBox9.Font = new System.Drawing.Font("Source Code Pro", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(90, 349);
+            this.textBox9.Font = new System.Drawing.Font("Source Code Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox9.Location = new System.Drawing.Point(68, 430);
             this.textBox9.Name = "textBox9";
             this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(240, 24);
+            this.textBox9.Size = new System.Drawing.Size(240, 17);
             this.textBox9.TabIndex = 8;
             this.textBox9.Text = "Group Attribute";
             this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.79319F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.20681F));
+            this.tableLayoutPanel4.Controls.Add(this.domName, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.textBox13, 0, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(8, 344);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(411, 68);
+            this.tableLayoutPanel4.TabIndex = 9;
+            // 
+            // domName
+            // 
+            this.domName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.domName.Font = new System.Drawing.Font("Source Code Pro", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.domName.Location = new System.Drawing.Point(146, 6);
+            this.domName.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.domName.Name = "domName";
+            this.domName.Size = new System.Drawing.Size(262, 24);
+            this.domName.TabIndex = 11;
+            // 
+            // textBox13
+            // 
+            this.textBox13.Cursor = System.Windows.Forms.Cursors.No;
+            this.textBox13.Font = new System.Drawing.Font("Source Code Pro", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox13.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.textBox13.Location = new System.Drawing.Point(3, 6);
+            this.textBox13.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.ReadOnly = true;
+            this.textBox13.Size = new System.Drawing.Size(132, 24);
+            this.textBox13.TabIndex = 8;
+            this.textBox13.Text = "Domain Name";
+            this.textBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // objCreation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 624);
+            this.ClientSize = new System.Drawing.Size(438, 624);
+            this.Controls.Add(this.tableLayoutPanel4);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel2);
@@ -423,7 +474,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "objCreation";
             this.Text = "Object Creation";
-            this.Load += new System.EventHandler(this.Form2_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -431,6 +481,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.objCount)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -439,10 +491,8 @@
         #endregion
         private System.Windows.Forms.Button create;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TextBox dcName;
         private System.Windows.Forms.TextBox password;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox userName;
@@ -462,5 +512,10 @@
         private System.Windows.Forms.ComboBox grpCategory;
         private System.Windows.Forms.ComboBox grpScope;
         private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textbox14;
+        private System.Windows.Forms.TextBox serverIp;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox domName;
     }
 }

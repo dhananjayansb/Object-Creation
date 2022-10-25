@@ -1,76 +1,288 @@
 ﻿using System;
-using System.Diagnostics;
+using System.DirectoryServices;
+using System.DirectoryServices.AccountManagement;
 using System.Windows.Forms;
 
 namespace Object_Creation
 {
     public partial class objCreation : Form
     {
-        string objectName, objectCount, objectPath, loginName, loginPassword, logindcName, objectType, groupCategory, groupScope;
+        string objectName, objectPath, loginName, loginPassword, objectType, groupCategory, groupScope, serverName, domainName, ldapPath;
+        int objectCount, excount=0;
+        bool grpcat;
+
+        PrincipalContext pricipalContext = null;
+        DirectoryEntry directoryEntry = null;
         
         public objCreation()
         {
             InitializeComponent();
         }
-
-        private void userName_TextChanged(object sender, EventArgs e)
+        
+        public void userName_MouseClicked(object sender, EventArgs e)
         {
-            loginName = userName.Text;
+            int VisibleTime = 1000;  //in milliseconds
+            ToolTip tt = new ToolTip();
+            tt.Show("Enter Administrator name with serverName", userName, 0, 0, VisibleTime);
+        }
+
+        public void serverIp_MouseClicked(object sender, EventArgs e)
+        {
+            int VisibleTime = 1000;  //in milliseconds
+            ToolTip tt = new ToolTip();
+            tt.Show("Enter serverName without .com", serverIp, 0, 0, VisibleTime);
+        }
+
+        public void ldapPrincipalContext()
+        {
+            try
+            {
+                pricipalContext = new PrincipalContext(ContextType.Domain, serverName, objectPath, loginName, loginPassword);
+                //pricipalContext = new PrincipalContext(ContextType.Domain, "yourdomain.com", "OU=TestOU,DC=yourdomain,DC=com","YourAdminUser","YourAdminPassword");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("LDAP Connection Failed");
+            }
+        }
+
+        public void createUser()
+        {
+            ldapPrincipalContext();
+
+            try
+            {
+                for (int i = 1; i <= objectCount; i++)
+                {
+                    UserPrincipal up = new UserPrincipal(pricipalContext);
+                    up.SamAccountName = objectName + i;
+                    up.DisplayName = objectName + i;
+                    up.UserPrincipalName = objectName + i + "@" + domainName;
+                    up.Name = objectName + i;
+                    up.Description = "User Created for testing";
+                    up.Enabled = true;
+                    up.SetPassword(objectName + i);
+                    up.Save();
+                }
+            }
+            catch (Exception ex)
+            {
+                excount++;
+                MessageBox.Show("Users not Created");
+            }
+            if (excount == 0)
+            {
+                MessageBox.Show("Success: " + objectCount + " Users Created");
+            }
+        }
+
+        public void createGroup()
+        {
+            ///MessageBox.Show(groupCategory + groupScope);
+            if (groupCategory == "Security")
+            {
+                grpcat = true;
+            }
+            else
+            {
+                grpcat = false;
+            }
+
+            ldapPrincipalContext();
+
+            try
+            {
+                for (int i = 1; i <= objectCount; i++)
+                {
+                    GroupPrincipal gp = new GroupPrincipal(pricipalContext);
+                    gp.SamAccountName = objectName + i;
+                    gp.DisplayName = objectName + i;
+                    gp.Name = objectName + i;
+                    gp.Description = "Group Created for testing";
+                    gp.GroupScope = (GroupScope)Enum.Parse(typeof(GroupScope), groupScope, true);
+                    gp.IsSecurityGroup = grpcat;
+                    gp.Save();
+                }
+            }
+            catch (Exception ex)
+            {
+                excount++;
+                MessageBox.Show("Groups not Created");
+            }
+            if (excount == 0)
+            {
+                MessageBox.Show("Success: " + objectCount + " Groups Created");
+            }
+        }
+
+        public void createComputer()
+        {
+            ldapPrincipalContext();
+            try
+            {
+                for (int i = 1; i <= objectCount; i++)
+                {
+                    ComputerPrincipal cp = new ComputerPrincipal(pricipalContext);
+                    cp.SamAccountName = objectName + i;
+                    cp.DisplayName = objectName + i;
+                    cp.Name = objectName + i;
+                    cp.Description = "Computer Created for testing";
+                    cp.UserPrincipalName = objectName + i + "@" + domainName;
+                    cp.Enabled = true;
+                    cp.Save();
+                }
+            }
+            catch (Exception ex)
+            {
+                excount++;
+                MessageBox.Show("Computers not Created");
+            }
+            if (excount == 0)
+            {
+                MessageBox.Show("Success: " + objectCount + " Computers Created");
+            }
+        }
+
+        public void createContact()
+        {
+            try
+            {
+                directoryEntry = new DirectoryEntry("LDAP://" + serverName + "/" + objectPath, loginName, loginPassword);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error:   Bind failed.");
+                Console.WriteLine("         {0}", e.Message);
+                return;
+            }
+            try
+            {
+                for (int i = 1; i <= objectCount; i++)
+                {
+                    DirectoryEntry contact;
+                    contact = directoryEntry.Children.Add("CN=" + objectName + i, "Contact");
+                    contact.Properties["name"].Add(objectName + i);
+                    contact.Properties["displayName"].Add(objectName + i);
+                    contact.Properties["description"].Add("Contact Created for testing");
+                    contact.Properties["mail"].Add(objectName + i + "@" + domainName);
+                    contact.CommitChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                excount++;
+                MessageBox.Show("Contacts not Created"+ ex.ToString());
+            }
+            if (excount == 0)
+            {
+                MessageBox.Show("Success: "+ objectCount + " Contacts Created");
+            }
         }
         
-        private void ouPath_TextChanged_1(object sender, EventArgs e)
+        public void createOU()
         {
-            objectPath = ouPath.Text;
-        }
-
-        private void objName_TextChanged(object sender, EventArgs e)
-        {
-            objectName = objName.Text;
-        }
-
-        private void Form2_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void objType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            objectType = objType.Items[objType.SelectedIndex].ToString();
-        }
-
-        private void objCount_ValueChanged_1(object sender, EventArgs e)
-        {
-            decimal dec = objCount.Value;
-            objectCount = Convert.ToString(dec);
-        }
-        
-        private void password_TextChanged(object sender, EventArgs e)
-        {
-            loginPassword = password.Text;
-        }
-
-        private void dcName_TextChanged(object sender, EventArgs e)
-        {
-            logindcName = dcName.Text;
-        }
-
-        private void grpScope_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            groupScope = grpScope.Items[grpScope.SelectedIndex].ToString();
-        }
-
-        private void grpCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            groupCategory = grpCategory.Items[grpCategory.SelectedIndex].ToString();
+            try
+            {
+                directoryEntry = new DirectoryEntry("LDAP://" + serverName + "/" + objectPath, loginName, loginPassword);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error:   Bind failed.");
+                Console.WriteLine("         {0}", e.Message);
+                return;
+            }
+            try
+            {
+                for (int i = 1; i <= objectCount; i++)
+                {
+                    DirectoryEntry ou;
+                    ou = directoryEntry.Children.Add("OU=" + objectName + i, "OrganizationalUnit");
+                    ou.Properties["description"].Add("OU Created for testing");
+                    ou.CommitChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                excount++;
+                MessageBox.Show("OU's not Created" + ex.ToString());
+            }
+            if (excount == 0)
+            {
+                MessageBox.Show("Success: " + objectCount + " OU's Created");
+            }
         }
 
         public void Create_Click(object sender, EventArgs e)
         {
-           RunScript();
-           ///MessageBox.Show(objectType + groupCategory + groupScope);
+            //loginName = userName.Text;
+            //loginPassword = password.Text;
+            //serverName = serverIp.Text;
+            loginName = "Automation\\Administrator";
+            loginPassword = "Auto@123";
+            serverName = "172.21.9.30";
+            objectPath = "OU=WPFAutomation,DC=AUTOMATION,DC=COM";
+            objectType = objType.Items[objType.SelectedIndex].ToString();
+            objectName = objName.Text;
+            //objectPath = ouPath.Text;
+            decimal dec = objCount.Value;
+            objectCount = Convert.ToInt32(dec);
+
+            RunScript();
+            ///MessageBox.Show(objectType);
+        }
+        
+        public void RunScript()
+        {
+            if(loginName!=null || loginPassword!=null)
+            {
+                if (objectType == "User")
+                {
+                    domainName = "Automation.com";
+                    //domainName = domName.Text;
+                    createUser();
+                }
+
+                else if(objectType == "Group")
+                {
+                    groupCategory = grpCategory.Items[grpCategory.SelectedIndex].ToString();
+                    groupScope = grpScope.Items[grpScope.SelectedIndex].ToString();
+                    createGroup();
+                }
+
+                else if (objectType == "Computer")
+                {
+                    domainName = "Automation.com";
+                    //domainName = domName.Text;
+                    createComputer();
+                }
+
+                else if (objectType == "Contact")
+                {
+                    domainName = "Automation.com";
+                    //domainName = domName.Text;
+                    createContact();
+                }
+
+                else if (objectType == "OU")
+                {
+                    domainName = "Automation.com";
+                    //domainName = domName.Text;
+                    createOU();
+                }
+
+                else
+                {
+                    MessageBox.Show("Object Type missing!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Credentials missing!");
+            }
         }
 
-        public void RunScript()
+        ///powershell-method
+        /*public void RunScript()
         {
             var ps1File = @"D:\Scripts\Login.ps1";
             var filePath = @"D:\Scripts\"+objectType+".ps1";
@@ -81,6 +293,6 @@ namespace Object_Creation
                 UseShellExecute = false
             };
             Process.Start(startInfo);
-        }
+        }*/
     }
 }

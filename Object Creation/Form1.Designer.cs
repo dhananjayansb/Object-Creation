@@ -35,17 +35,10 @@
             this.copyRights = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.downProduct = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.killAll = new System.Windows.Forms.Button();
             this.startProduct = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
             this.prodPath = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,7 +109,7 @@
             this.downProduct.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.downProduct.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.downProduct.ForeColor = System.Drawing.Color.Black;
-            this.downProduct.Location = new System.Drawing.Point(139, 148);
+            this.downProduct.Location = new System.Drawing.Point(270, 94);
             this.downProduct.Name = "downProduct";
             this.downProduct.Size = new System.Drawing.Size(107, 31);
             this.downProduct.TabIndex = 6;
@@ -124,48 +117,12 @@
             this.downProduct.UseVisualStyleBackColor = true;
             this.downProduct.Click += new System.EventHandler(this.downProduct_Click);
             // 
-            // button2
-            // 
-            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button2.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(270, 263);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(114, 31);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Stop Service";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button3.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(270, 204);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(114, 31);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Start Service";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button4.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Location = new System.Drawing.Point(270, 148);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(114, 31);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "Remove Service";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // killAll
             // 
             this.killAll.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.killAll.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.killAll.ForeColor = System.Drawing.Color.Black;
-            this.killAll.Location = new System.Drawing.Point(139, 204);
+            this.killAll.Location = new System.Drawing.Point(270, 141);
             this.killAll.Name = "killAll";
             this.killAll.Size = new System.Drawing.Size(107, 31);
             this.killAll.TabIndex = 10;
@@ -185,42 +142,6 @@
             this.startProduct.Text = "Start ";
             this.startProduct.UseVisualStyleBackColor = true;
             this.startProduct.Click += new System.EventHandler(this.startProduct_Click);
-            // 
-            // button7
-            // 
-            this.button7.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button7.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.Black;
-            this.button7.Location = new System.Drawing.Point(12, 148);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(107, 31);
-            this.button7.TabIndex = 12;
-            this.button7.Text = "Create Folder";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button8.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.Black;
-            this.button8.Location = new System.Drawing.Point(12, 195);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(107, 49);
-            this.button8.TabIndex = 13;
-            this.button8.Text = "Create Automation";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            this.button9.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button9.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.Color.Black;
-            this.button9.Location = new System.Drawing.Point(12, 263);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(107, 49);
-            this.button9.TabIndex = 14;
-            this.button9.Text = "Create Workflow";
-            this.button9.UseVisualStyleBackColor = true;
             // 
             // prodPath
             // 
@@ -243,34 +164,15 @@
             this.textBox3.Text = "Product Path";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // button1
-            // 
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(270, 94);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 31);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Install Service";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // mainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(396, 551);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.prodPath);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
             this.Controls.Add(this.startProduct);
             this.Controls.Add(this.killAll);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.downProduct);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.copyRights);
@@ -294,17 +196,10 @@
         private System.Windows.Forms.LinkLabel copyRights;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button downProduct;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button killAll;
         private System.Windows.Forms.Button startProduct;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
         private System.Windows.Forms.TextBox prodPath;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button1;
     }
 }
 

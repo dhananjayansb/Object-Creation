@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Diagnostics;
-using System.IO;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Object_Creation
 {
     public partial class mainPage : Form
     {
-        String java, postgres;
         public mainPage()
         {
             InitializeComponent();
