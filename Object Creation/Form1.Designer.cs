@@ -37,15 +37,14 @@
             this.downProduct = new System.Windows.Forms.Button();
             this.killAll = new System.Windows.Forms.Button();
             this.startProduct = new System.Windows.Forms.Button();
-            this.prodPath = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.zipProduct = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // createUser
             // 
             this.createUser.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.createUser.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createUser.Font = new System.Drawing.Font("Source Sans Pro", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createUser.ForeColor = System.Drawing.Color.Black;
             this.createUser.Location = new System.Drawing.Point(12, 94);
             this.createUser.Name = "createUser";
@@ -107,24 +106,24 @@
             // downProduct
             // 
             this.downProduct.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.downProduct.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.downProduct.Font = new System.Drawing.Font("Source Sans Pro", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.downProduct.ForeColor = System.Drawing.Color.Black;
             this.downProduct.Location = new System.Drawing.Point(270, 94);
             this.downProduct.Name = "downProduct";
-            this.downProduct.Size = new System.Drawing.Size(107, 31);
+            this.downProduct.Size = new System.Drawing.Size(123, 31);
             this.downProduct.TabIndex = 6;
-            this.downProduct.Text = "Shutdown";
+            this.downProduct.Text = "Shutdown Product";
             this.downProduct.UseVisualStyleBackColor = true;
             this.downProduct.Click += new System.EventHandler(this.downProduct_Click);
             // 
             // killAll
             // 
             this.killAll.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.killAll.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.killAll.Font = new System.Drawing.Font("Source Sans Pro", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.killAll.ForeColor = System.Drawing.Color.Black;
             this.killAll.Location = new System.Drawing.Point(270, 141);
             this.killAll.Name = "killAll";
-            this.killAll.Size = new System.Drawing.Size(107, 31);
+            this.killAll.Size = new System.Drawing.Size(123, 31);
             this.killAll.TabIndex = 10;
             this.killAll.Text = "Kill All";
             this.killAll.UseVisualStyleBackColor = true;
@@ -133,44 +132,35 @@
             // startProduct
             // 
             this.startProduct.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.startProduct.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startProduct.Font = new System.Drawing.Font("Source Sans Pro", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startProduct.ForeColor = System.Drawing.Color.Black;
             this.startProduct.Location = new System.Drawing.Point(139, 94);
             this.startProduct.Name = "startProduct";
             this.startProduct.Size = new System.Drawing.Size(107, 31);
             this.startProduct.TabIndex = 11;
-            this.startProduct.Text = "Start ";
+            this.startProduct.Text = "Start Product";
             this.startProduct.UseVisualStyleBackColor = true;
             this.startProduct.Click += new System.EventHandler(this.startProduct_Click);
             // 
-            // prodPath
+            // zipProduct
             // 
-            this.prodPath.Font = new System.Drawing.Font("Source Code Pro", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prodPath.Location = new System.Drawing.Point(12, 482);
-            this.prodPath.Name = "prodPath";
-            this.prodPath.Size = new System.Drawing.Size(372, 21);
-            this.prodPath.TabIndex = 15;
-            // 
-            // textBox3
-            // 
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Source Code Pro", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox3.Location = new System.Drawing.Point(12, 462);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(100, 14);
-            this.textBox3.TabIndex = 16;
-            this.textBox3.Text = "Product Path";
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.zipProduct.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.zipProduct.Font = new System.Drawing.Font("Source Sans Pro", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.zipProduct.ForeColor = System.Drawing.Color.Black;
+            this.zipProduct.Location = new System.Drawing.Point(139, 141);
+            this.zipProduct.Name = "zipProduct";
+            this.zipProduct.Size = new System.Drawing.Size(107, 31);
+            this.zipProduct.TabIndex = 12;
+            this.zipProduct.Text = "Zip Product";
+            this.zipProduct.UseVisualStyleBackColor = true;
+            this.zipProduct.Click += new System.EventHandler(this.zipProduct_Click);
             // 
             // mainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(396, 551);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.prodPath);
+            this.ClientSize = new System.Drawing.Size(411, 551);
+            this.Controls.Add(this.zipProduct);
             this.Controls.Add(this.startProduct);
             this.Controls.Add(this.killAll);
             this.Controls.Add(this.downProduct);
@@ -198,8 +188,7 @@
         private System.Windows.Forms.Button downProduct;
         private System.Windows.Forms.Button killAll;
         private System.Windows.Forms.Button startProduct;
-        private System.Windows.Forms.TextBox prodPath;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button zipProduct;
     }
 }
 

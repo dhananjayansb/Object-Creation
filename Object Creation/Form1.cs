@@ -6,6 +6,9 @@ namespace Object_Creation
 {
     public partial class mainPage : Form
     {
+
+        public static string action;
+
         public mainPage()
         {
             InitializeComponent();
@@ -24,38 +27,30 @@ namespace Object_Creation
 
         public void startProduct_Click(object sender, EventArgs e)
         {
-            ///MessageBox.Show(productPath);
-            var path = @prodPath.Text;
-            var processStartInfo = new ProcessStartInfo();
-            processStartInfo.WorkingDirectory = path;
-            processStartInfo.FileName = "cmd.exe";
-            processStartInfo.Arguments = "/C runAsAdmin.bat";
-            Process proc = Process.Start(processStartInfo);
+            action = "start";
+            var startProduct = new productActions(action);
+            startProduct.Show();
         }
-
-
+        
         public void downProduct_Click(object sender, EventArgs e)
         {
-            var path = @prodPath.Text;
-            var processStartInfo = new ProcessStartInfo();
-            processStartInfo.WorkingDirectory = path;
-            processStartInfo.FileName = "cmd.exe";
-            processStartInfo.Arguments = "/C shutdown.bat";
-            Process proc = Process.Start(processStartInfo);
+            action = "stop";
+            var stopProduct = new productActions(action);
+            stopProduct.Show();
         }
 
         private void killAll_Click(object sender, EventArgs e)
         {
-              var path = @prodPath.Text;
-            Process proc = new Process();
-            var processStartInfo = new ProcessStartInfo();
-            processStartInfo.WorkingDirectory = path;
-            processStartInfo.FileName = "cmd.exe";
-            processStartInfo.Arguments = "/C taskkill /f /im java.exe";
-            proc = Process.Start(processStartInfo);
-            processStartInfo.FileName = "cmd.exe";
-            processStartInfo.Arguments = "/C taskkill /f /im postgres.exe";
-            proc = Process.Start(processStartInfo);
+            action = "kill";
+            var killProduct = new productActions(action);
+            killProduct.Show();
+        }
+
+        private void zipProduct_Click(object sender, EventArgs e)
+        {
+            action = "zip";
+            var zipProduct = new productActions(action);
+            zipProduct.Show();
         }
     }
 }

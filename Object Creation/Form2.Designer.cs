@@ -57,6 +57,7 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.domName = new System.Windows.Forms.TextBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
+            this.sample = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.objCount)).BeginInit();
@@ -212,7 +213,7 @@
             this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox6.Cursor = System.Windows.Forms.Cursors.No;
             this.textBox6.Font = new System.Drawing.Font("Source Code Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(68, 12);
+            this.textBox6.Location = new System.Drawing.Point(89, 12);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(240, 17);
@@ -225,7 +226,7 @@
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Cursor = System.Windows.Forms.Cursors.No;
             this.textBox1.Font = new System.Drawing.Font("Source Code Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(68, 205);
+            this.textBox1.Location = new System.Drawing.Point(89, 205);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(240, 17);
@@ -409,7 +410,7 @@
             this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox9.Cursor = System.Windows.Forms.Cursors.No;
             this.textBox9.Font = new System.Drawing.Font("Source Code Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(68, 430);
+            this.textBox9.Location = new System.Drawing.Point(89, 430);
             this.textBox9.Name = "textBox9";
             this.textBox9.ReadOnly = true;
             this.textBox9.Size = new System.Drawing.Size(240, 17);
@@ -458,11 +459,22 @@
             this.textBox13.Text = "Domain Name";
             this.textBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // sample
+            // 
+            this.sample.Location = new System.Drawing.Point(342, 13);
+            this.sample.Name = "sample";
+            this.sample.Size = new System.Drawing.Size(75, 23);
+            this.sample.TabIndex = 10;
+            this.sample.Text = "sample";
+            this.sample.UseVisualStyleBackColor = true;
+            this.sample.Click += new System.EventHandler(this.sample_Click);
+            // 
             // objCreation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(438, 624);
+            this.Controls.Add(this.sample);
             this.Controls.Add(this.tableLayoutPanel4);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.tableLayoutPanel3);
@@ -517,5 +529,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.TextBox domName;
+        private System.Windows.Forms.Button sample;
     }
 }

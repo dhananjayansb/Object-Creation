@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.DirectoryServices;
 using System.DirectoryServices.AccountManagement;
 using System.Windows.Forms;
@@ -7,23 +8,27 @@ namespace Object_Creation
 {
     public partial class objCreation : Form
     {
-        string objectName, objectPath, loginName, loginPassword, objectType, groupCategory, groupScope, serverName, domainName, ldapPath;
-        int objectCount, excount=0;
+        string objectName, objectPath, loginName, loginPassword, objectType, groupCategory, groupScope, serverName, domainName;
+        int objectCount, excount = 0;
         bool grpcat;
 
         PrincipalContext pricipalContext = null;
         DirectoryEntry directoryEntry = null;
-        
         public objCreation()
         {
             InitializeComponent();
         }
-        
         public void userName_MouseClicked(object sender, EventArgs e)
         {
             int VisibleTime = 1000;  //in milliseconds
             ToolTip tt = new ToolTip();
             tt.Show("Enter Administrator name with serverName", userName, 0, 0, VisibleTime);
+        }
+
+        private void sample_Click(object sender, EventArgs e)
+        {
+            var sample = new sample();
+            sample.Show();
         }
 
         public void serverIp_MouseClicked(object sender, EventArgs e)
@@ -214,16 +219,16 @@ namespace Object_Creation
 
         public void Create_Click(object sender, EventArgs e)
         {
-            //loginName = userName.Text;
-            //loginPassword = password.Text;
-            //serverName = serverIp.Text;
-            loginName = "Automation\\Administrator";
-            loginPassword = "Auto@123";
-            serverName = "172.21.9.30";
-            objectPath = "OU=WPFAutomation,DC=AUTOMATION,DC=COM";
+            loginName = userName.Text;
+            loginPassword = password.Text;
+            serverName = serverIp.Text;
+            //loginName = "Automation\\Administrator";
+            //loginPassword = "Auto@123";
+            //serverName = "172.21.9.30";
+            //objectPath = "OU=WPFAutomation,DC=AUTOMATION,DC=COM";
             objectType = objType.Items[objType.SelectedIndex].ToString();
             objectName = objName.Text;
-            //objectPath = ouPath.Text;
+            objectPath = ouPath.Text;
             decimal dec = objCount.Value;
             objectCount = Convert.ToInt32(dec);
 
@@ -237,8 +242,8 @@ namespace Object_Creation
             {
                 if (objectType == "User")
                 {
-                    domainName = "Automation.com";
-                    //domainName = domName.Text;
+                    //domainName = "Automation.com";
+                    domainName = domName.Text;
                     createUser();
                 }
 
@@ -251,22 +256,22 @@ namespace Object_Creation
 
                 else if (objectType == "Computer")
                 {
-                    domainName = "Automation.com";
-                    //domainName = domName.Text;
+                    //domainName = "Automation.com";
+                    domainName = domName.Text;
                     createComputer();
                 }
 
                 else if (objectType == "Contact")
                 {
-                    domainName = "Automation.com";
-                    //domainName = domName.Text;
+                    //domainName = "Automation.com";
+                    domainName = domName.Text;
                     createContact();
                 }
 
                 else if (objectType == "OU")
                 {
-                    domainName = "Automation.com";
-                    //domainName = domName.Text;
+                    //domainName = "Automation.com";
+                    domainName = domName.Text;
                     createOU();
                 }
 
