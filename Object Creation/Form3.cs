@@ -9,8 +9,7 @@ namespace Object_Creation
     public partial class productActions : Form
     {
         public string actionID;
-
-        BackgroundWorker worker = new BackgroundWorker();
+       
         ProgressBar pBar = new ProgressBar();
 
         public void CopyWithProgress(string path, string zipPath)
@@ -105,9 +104,9 @@ namespace Object_Creation
                 var prodzipPath = zipPath.Text;
                 CopyWithProgress(productPath,prodzipPath);
 
-                if (progressBar.Value == 100)
+                if (progressBar.Value == 1)
                 {
-                    progressBar.Value = 1;
+                    progressBar.Value = 0;
                     MessageBox.Show("Operation Complete!!");
                 }
             }

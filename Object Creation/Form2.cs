@@ -14,6 +14,7 @@ namespace Object_Creation
 
         PrincipalContext pricipalContext = null;
         DirectoryEntry directoryEntry = null;
+
         public objCreation()
         {
             InitializeComponent();
@@ -74,10 +75,6 @@ namespace Object_Creation
             {
                 excount++;
                 MessageBox.Show("Users not Created");
-            }
-            if (excount == 0)
-            {
-                MessageBox.Show("Success: " + objectCount + " Users Created");
             }
         }
 
@@ -238,24 +235,47 @@ namespace Object_Creation
         
         public void RunScript()
         {
-            if(loginName!=null || loginPassword!=null)
+            if(loginName!=null && loginPassword!=null)
             {
                 if (objectType == "User")
                 {
-                    //domainName = "Automation.com";
-                    domainName = domName.Text;
-                    createUser();
+                    try
+                    {
+                        //domainName = "Automation.com";
+                        domainName = domName.Text;
+                        createUser();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Params Missing Check out!"+ex.ToString());
+                    }
                 }
-
-                else if(objectType == "Group")
+                else if (objectType == "Group")
                 {
-                    groupCategory = grpCategory.Items[grpCategory.SelectedIndex].ToString();
-                    groupScope = grpScope.Items[grpScope.SelectedIndex].ToString();
-                    createGroup();
+                    try
+                    {
+                        groupCategory = grpCategory.Items[grpCategory.SelectedIndex].ToString();
+                        groupScope = grpScope.Items[grpScope.SelectedIndex].ToString();
+                        createGroup();
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show("Params Missing Check out!" + ex.ToString());
+                    }
                 }
 
                 else if (objectType == "Computer")
                 {
+                    try
+                    {
+                        //domainName = "Automation.com";
+                        domainName = domName.Text;
+                        createContact();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Params Missing Check out!" + ex.ToString());
+                    }
                     //domainName = "Automation.com";
                     domainName = domName.Text;
                     createComputer();
@@ -263,16 +283,30 @@ namespace Object_Creation
 
                 else if (objectType == "Contact")
                 {
-                    //domainName = "Automation.com";
-                    domainName = domName.Text;
-                    createContact();
+                    try
+                    {
+                        //domainName = "Automation.com";
+                        domainName = domName.Text;
+                        createContact();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Params Missing Check out!" + ex.ToString());
+                    }
                 }
 
                 else if (objectType == "OU")
                 {
-                    //domainName = "Automation.com";
-                    domainName = domName.Text;
-                    createOU();
+                    try
+                    {
+                        //domainName = "Automation.com";
+                        domainName = domName.Text;
+                        createOU();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Params Missing Check out!" + ex.ToString());
+                    }
                 }
 
                 else
