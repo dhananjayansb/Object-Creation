@@ -461,12 +461,13 @@
             // 
             // sample
             // 
+            this.sample.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.sample.Location = new System.Drawing.Point(342, 13);
             this.sample.Name = "sample";
             this.sample.Size = new System.Drawing.Size(75, 23);
             this.sample.TabIndex = 10;
             this.sample.Text = "sample";
-            this.sample.UseVisualStyleBackColor = true;
+            this.sample.UseVisualStyleBackColor = false;
             this.sample.Click += new System.EventHandler(this.sample_Click);
             // 
             // objCreation

@@ -85,5 +85,39 @@ namespace Object_Creation
                 }
             }
         }
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void prodPath_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void zipPath_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void progressBar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void productActions_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
