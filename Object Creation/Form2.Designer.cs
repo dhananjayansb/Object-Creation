@@ -484,6 +484,7 @@
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.create);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "objCreation";
             this.Text = "Object Creation";

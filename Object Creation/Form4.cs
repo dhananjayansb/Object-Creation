@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.DirectoryServices;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,25 +29,32 @@ namespace Object_Creation
 
         private void folderButton_Click(object sender, EventArgs e)
         {
-            FolderCount = Convert.ToInt32(folderCount.Text);
-            PathCount = Convert.ToInt32(pathCount.Text);
+            try
+            {
+                FolderCount = Convert.ToInt32(folderCount.Text);
+                PathCount = Convert.ToInt32(pathCount.Text);
 
-            if (!System.IO.Directory.Exists(folderPath.Text))
-            {
-                for(int i=1;i <= PathCount; i++)
+                if (!System.IO.Directory.Exists(folderPath.Text))
                 {
-                    for(int j=1; j <= FolderCount; j++)
+                    for (int i = 1; i <= PathCount; i++)
                     {
-                        System.IO.Directory.CreateDirectory(folderPath.Text+i + "\\" + folderName.Text+j);
+                        for (int j = 1; j <= FolderCount; j++)
+                        {
+                            System.IO.Directory.CreateDirectory(folderPath.Text + i + "\\" + folderName.Text + j);
+                        }
                     }
+                    folderPath.Text = "";
+                    folderName.Text = "";
+                    MessageBox.Show("Directory Created Successfully!");
                 }
-                folderPath.Text = "";
-                folderName.Text = "";
-                MessageBox.Show("Directory Created Successfully!");
+                else
+                {
+                    MessageBox.Show("Directory Already Exist!..");
+                }
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show( "Directory Already Exist!..");
+                MessageBox.Show("Please enter required fields");
             }
         }
     }

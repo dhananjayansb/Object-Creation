@@ -15,18 +15,24 @@ namespace Object_Creation
 
         public void CopyWithProgress(string path, string zipPath)
         {
-
-            ZipFile.CreateFromDirectory(path, zipPath);
-            
-            progressBar.Visible = true;
-            progressBar.Minimum = 1;
-            progressBar.Maximum = zipPath.Length;
-            progressBar.Value = 1;
-            progressBar.Step = 1;
-            
-            for (int x = 1; x <= zipPath.Length; x++)
+            try
             {
-                progressBar.PerformStep();
+                ZipFile.CreateFromDirectory(path, zipPath);
+
+                progressBar.Visible = true;
+                progressBar.Minimum = 1;
+                progressBar.Maximum = zipPath.Length;
+                progressBar.Value = 1;
+                progressBar.Step = 1;
+
+                for (int x = 1; x <= zipPath.Length; x++)
+                {
+                    progressBar.PerformStep();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Please Enter Required Fields");
             }
         }
 
@@ -40,36 +46,57 @@ namespace Object_Creation
             ///MessageBox.Show(actionID);
             if (actionID == "start")
             {
-                var path = @prodPath.Text;
-                var processStartInfo = new ProcessStartInfo();
-                processStartInfo.WorkingDirectory = path;
-                processStartInfo.FileName = "cmd.exe";
-                processStartInfo.Arguments = "/C runAsAdmin.bat";
-                Process proc = Process.Start(processStartInfo);
+                try
+                {
+                    var path = @prodPath.Text;
+                    var processStartInfo = new ProcessStartInfo();
+                    processStartInfo.WorkingDirectory = path;
+                    processStartInfo.FileName = "cmd.exe";
+                    processStartInfo.Arguments = "/C runAsAdmin.bat";
+                    Process proc = Process.Start(processStartInfo);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Please Enter Required Fields");
+                }
             }
 
             else if (actionID == "stop")
             {
-                var path = @prodPath.Text;
-                var processStartInfo = new ProcessStartInfo();
-                processStartInfo.WorkingDirectory = path;
-                processStartInfo.FileName = "cmd.exe";
-                processStartInfo.Arguments = "/C shutdown.bat";
-                Process proc = Process.Start(processStartInfo);
+                try
+                { 
+                    var path = @prodPath.Text;
+                    var processStartInfo = new ProcessStartInfo();
+                    processStartInfo.WorkingDirectory = path;
+                    processStartInfo.FileName = "cmd.exe";
+                    processStartInfo.Arguments = "/C shutdown.bat";
+                    Process proc = Process.Start(processStartInfo);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Please Enter Required Fields");
+                }
             }
 
             else if (actionID == "kill")
             {
-                var path = @prodPath.Text;
-                Process proc = new Process();
-                var processStartInfo = new ProcessStartInfo();
-                processStartInfo.WorkingDirectory = path;
-                processStartInfo.FileName = "cmd.exe";
-                processStartInfo.Arguments = "/C taskkill /f /im java.exe";
-                proc = Process.Start(processStartInfo);
-                processStartInfo.FileName = "cmd.exe";
-                processStartInfo.Arguments = "/C taskkill /f /im postgres.exe";
-                proc = Process.Start(processStartInfo);
+                try
+                {
+                    var path = @prodPath.Text;
+                    Process proc = new Process();
+                    var processStartInfo = new ProcessStartInfo();
+                    processStartInfo.WorkingDirectory = path;
+                    processStartInfo.FileName = "cmd.exe";
+                    processStartInfo.Arguments = "/C taskkill /f /im java.exe";
+                    proc = Process.Start(processStartInfo);
+                    processStartInfo.FileName = "cmd.exe";
+                    processStartInfo.Arguments = "/C taskkill /f /im postgres.exe";
+                    proc = Process.Start(processStartInfo);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Please Enter Required Fields");
+                }
             }
 
             else if (actionID == "zip")
@@ -84,40 +111,6 @@ namespace Object_Creation
                     MessageBox.Show("Operation Complete!!");
                 }
             }
-        }
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void prodPath_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void zipPath_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void progressBar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void productActions_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

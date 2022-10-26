@@ -165,6 +165,7 @@
             this.Controls.Add(this.folderButton);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.folderPath);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "createFolder";
             this.Text = "Create Folders";

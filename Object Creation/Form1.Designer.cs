@@ -64,7 +64,7 @@
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(300, 21);
             this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "ADManager Plus";
+            this.textBox1.Text = "Performance Tool";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pictureBox1
@@ -171,9 +171,10 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.createUser);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "mainPage";
-            this.Text = "ManageEngine QA Tool";
+            this.Text = "ManageEngine QA";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

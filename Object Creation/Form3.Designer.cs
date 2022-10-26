@@ -50,7 +50,6 @@
             this.textBox3.TabIndex = 18;
             this.textBox3.Text = "Product Path";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // prodPath
             // 
@@ -60,7 +59,6 @@
             this.prodPath.Name = "prodPath";
             this.prodPath.Size = new System.Drawing.Size(468, 21);
             this.prodPath.TabIndex = 17;
-            this.prodPath.TextChanged += new System.EventHandler(this.prodPath_TextChanged);
             // 
             // textBox1
             // 
@@ -74,7 +72,6 @@
             this.textBox1.TabIndex = 20;
             this.textBox1.Text = "Zip Path";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // zipPath
             // 
@@ -84,7 +81,6 @@
             this.zipPath.Name = "zipPath";
             this.zipPath.Size = new System.Drawing.Size(468, 21);
             this.zipPath.TabIndex = 19;
-            this.zipPath.TextChanged += new System.EventHandler(this.zipPath_TextChanged);
             // 
             // execute
             // 
@@ -109,7 +105,6 @@
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(492, 26);
             this.progressBar.TabIndex = 22;
-            this.progressBar.Click += new System.EventHandler(this.progressBar_Click);
             // 
             // label1
             // 
@@ -119,7 +114,6 @@
             this.label1.Size = new System.Drawing.Size(119, 13);
             this.label1.TabIndex = 23;
             this.label1.Text = "(Only Applicable for Zip)";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // productActions
             // 
@@ -133,10 +127,10 @@
             this.Controls.Add(this.zipPath);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.prodPath);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "productActions";
-            this.Text = "Form3";
-            this.Load += new System.EventHandler(this.productActions_Load);
+            this.Text = "Product Actions";
             this.ResumeLayout(false);
             this.PerformLayout();
 
