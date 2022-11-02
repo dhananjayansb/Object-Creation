@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.IO.Compression;
 using System.Windows.Forms;
@@ -8,7 +7,7 @@ namespace Object_Creation
 {
     public partial class productActions : Form
     {
-        public string actionID;
+        public string actionID, productPath, prodzipPath;
        
         ProgressBar pBar = new ProgressBar();
 
@@ -39,49 +38,51 @@ namespace Object_Creation
         {
             InitializeComponent();
             actionID = action;
+            productPath = prodPath.Text;
+            prodzipPath = zipPath.Text;
         }
         private void execute_Click(object sender, EventArgs e)
         {
             ///MessageBox.Show(actionID);
             if (actionID == "start")
             {
-                try
+                var path = @prodPath.Text;
+                if (productPath != "")
                 {
-                    var path = @prodPath.Text;
                     var processStartInfo = new ProcessStartInfo();
                     processStartInfo.WorkingDirectory = path;
                     processStartInfo.FileName = "cmd.exe";
                     processStartInfo.Arguments = "/C runAsAdmin.bat";
                     Process proc = Process.Start(processStartInfo);
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Please Enter Required Fields");
+                    MessageBox.Show("Please Enter Product Path");
                 }
             }
 
             else if (actionID == "stop")
             {
-                try
-                { 
-                    var path = @prodPath.Text;
+                var path = @prodPath.Text;
+                if (productPath != "")
+                {
                     var processStartInfo = new ProcessStartInfo();
                     processStartInfo.WorkingDirectory = path;
                     processStartInfo.FileName = "cmd.exe";
                     processStartInfo.Arguments = "/C shutdown.bat";
                     Process proc = Process.Start(processStartInfo);
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Please Enter Required Fields");
+                    MessageBox.Show("Please Enter Product Path");
                 }
             }
 
             else if (actionID == "kill")
             {
-                try
+                var path = @prodPath.Text;
+                if (productPath != "")
                 {
-                    var path = @prodPath.Text;
                     Process proc = new Process();
                     var processStartInfo = new ProcessStartInfo();
                     processStartInfo.WorkingDirectory = path;
@@ -92,9 +93,9 @@ namespace Object_Creation
                     processStartInfo.Arguments = "/C taskkill /f /im postgres.exe";
                     proc = Process.Start(processStartInfo);
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Please Enter Required Fields");
+                    MessageBox.Show("Please Enter Product Path");
                 }
             }
 
@@ -102,12 +103,19 @@ namespace Object_Creation
             {
                 var productPath = prodPath.Text;
                 var prodzipPath = zipPath.Text;
-                CopyWithProgress(productPath,prodzipPath);
+                if ((productPath != "") && (prodzipPath != ""))
+                { 
+                    CopyWithProgress(productPath, prodzipPath);
 
-                if (progressBar.Value == 1)
+                    if (progressBar.Value == 1)
+                    {
+                        progressBar.Value = 0;
+                        MessageBox.Show("Operation Complete!!");
+                    }
+                }
+                else
                 {
-                    progressBar.Value = 0;
-                    MessageBox.Show("Operation Complete!!");
+                    MessageBox.Show("Please Enter Product Path & Zip Path");
                 }
             }
         }

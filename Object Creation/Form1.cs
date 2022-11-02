@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace Object_Creation
@@ -7,7 +6,7 @@ namespace Object_Creation
     public partial class mainPage : Form
     {
 
-        public static string action;
+        public static string action, regPath;
 
         public mainPage()
         {
@@ -59,5 +58,16 @@ namespace Object_Creation
             createFolder.Show();
         }
 
+        private void customAttribute_Click(object sender, EventArgs e)
+        {
+            var createAttribute = new customAttribute();
+            createAttribute.Show();
+        }
+
+        private void removeReg_Click(object sender, EventArgs e)
+        {
+            var regEdit = new regEditor();
+            regEdit.Show();
+        }
     }
 }

@@ -38,6 +38,8 @@
             this.startProduct = new System.Windows.Forms.Button();
             this.zipProduct = new System.Windows.Forms.Button();
             this.createFolder = new System.Windows.Forms.Button();
+            this.removeReg = new System.Windows.Forms.Button();
+            this.customAttribute = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,7 +67,7 @@
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Source Code Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox1.Location = new System.Drawing.Point(54, 27);
+            this.textBox1.Location = new System.Drawing.Point(68, 27);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(300, 21);
@@ -95,7 +97,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.copyRights.AutoSize = true;
             this.copyRights.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.copyRights.Location = new System.Drawing.Point(287, 530);
+            this.copyRights.Location = new System.Drawing.Point(303, 530);
             this.copyRights.Margin = new System.Windows.Forms.Padding(3, 0, 3, 8);
             this.copyRights.Name = "copyRights";
             this.copyRights.Size = new System.Drawing.Size(106, 16);
@@ -184,11 +186,45 @@
             this.createFolder.UseVisualStyleBackColor = true;
             this.createFolder.Click += new System.EventHandler(this.createFolder_Click);
             // 
+            // removeReg
+            // 
+            this.removeReg.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.removeReg.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.removeReg.Font = new System.Drawing.Font("Source Sans Pro", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removeReg.ForeColor = System.Drawing.Color.Black;
+            this.removeReg.Location = new System.Drawing.Point(139, 195);
+            this.removeReg.Name = "removeReg";
+            this.removeReg.Size = new System.Drawing.Size(107, 31);
+            this.removeReg.TabIndex = 14;
+            this.removeReg.Text = "Remove Reg";
+            this.removeReg.UseVisualStyleBackColor = true;
+            this.removeReg.Click += new System.EventHandler(this.removeReg_Click);
+            // 
+            // customAttribute
+            // 
+            this.customAttribute.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.customAttribute.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.customAttribute.Font = new System.Drawing.Font("Source Sans Pro", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customAttribute.ForeColor = System.Drawing.Color.Black;
+            this.customAttribute.Location = new System.Drawing.Point(12, 195);
+            this.customAttribute.Name = "customAttribute";
+            this.customAttribute.Size = new System.Drawing.Size(107, 31);
+            this.customAttribute.TabIndex = 15;
+            this.customAttribute.Text = "Custom Attribute";
+            this.customAttribute.UseVisualStyleBackColor = true;
+            this.customAttribute.Click += new System.EventHandler(this.customAttribute_Click);
+            // 
             // mainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(411, 551);
+            this.Controls.Add(this.customAttribute);
+            this.Controls.Add(this.removeReg);
             this.Controls.Add(this.createFolder);
             this.Controls.Add(this.zipProduct);
             this.Controls.Add(this.startProduct);
@@ -220,6 +256,8 @@
         private System.Windows.Forms.Button startProduct;
         private System.Windows.Forms.Button zipProduct;
         private System.Windows.Forms.Button createFolder;
+        private System.Windows.Forms.Button removeReg;
+        private System.Windows.Forms.Button customAttribute;
     }
 }
 

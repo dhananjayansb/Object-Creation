@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.DirectoryServices;
 using System.DirectoryServices.AccountManagement;
 using System.Windows.Forms;
