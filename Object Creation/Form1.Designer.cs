@@ -40,6 +40,8 @@
             this.createFolder = new System.Windows.Forms.Button();
             this.removeReg = new System.Windows.Forms.Button();
             this.customAttribute = new System.Windows.Forms.Button();
+            this.modifyObject = new System.Windows.Forms.Button();
+            this.sendMail = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -218,11 +220,45 @@
             this.customAttribute.UseVisualStyleBackColor = true;
             this.customAttribute.Click += new System.EventHandler(this.customAttribute_Click);
             // 
+            // modifyObject
+            // 
+            this.modifyObject.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.modifyObject.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.modifyObject.Font = new System.Drawing.Font("Source Sans Pro", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modifyObject.ForeColor = System.Drawing.Color.Black;
+            this.modifyObject.Location = new System.Drawing.Point(12, 251);
+            this.modifyObject.Name = "modifyObject";
+            this.modifyObject.Size = new System.Drawing.Size(107, 31);
+            this.modifyObject.TabIndex = 16;
+            this.modifyObject.Text = "Modify Object";
+            this.modifyObject.UseVisualStyleBackColor = true;
+            this.modifyObject.Click += new System.EventHandler(this.modifyObject_Click);
+            // 
+            // sendMail
+            // 
+            this.sendMail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.sendMail.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.sendMail.Font = new System.Drawing.Font("Source Sans Pro", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sendMail.ForeColor = System.Drawing.Color.Black;
+            this.sendMail.Location = new System.Drawing.Point(139, 251);
+            this.sendMail.Name = "sendMail";
+            this.sendMail.Size = new System.Drawing.Size(107, 31);
+            this.sendMail.TabIndex = 17;
+            this.sendMail.Text = "Send Mail";
+            this.sendMail.UseVisualStyleBackColor = true;
+            this.sendMail.Click += new System.EventHandler(this.sendMail_Click);
+            // 
             // mainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(411, 551);
+            this.Controls.Add(this.sendMail);
+            this.Controls.Add(this.modifyObject);
             this.Controls.Add(this.customAttribute);
             this.Controls.Add(this.removeReg);
             this.Controls.Add(this.createFolder);
@@ -258,6 +294,8 @@
         private System.Windows.Forms.Button createFolder;
         private System.Windows.Forms.Button removeReg;
         private System.Windows.Forms.Button customAttribute;
+        private System.Windows.Forms.Button modifyObject;
+        private System.Windows.Forms.Button sendMail;
     }
 }
 

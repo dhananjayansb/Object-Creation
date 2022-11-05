@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Net;
+using Independentsoft.Exchange;
+using Message = Independentsoft.Exchange.Message;
+using System.IO;
 
 namespace Object_Creation
 {
@@ -64,10 +68,66 @@ namespace Object_Creation
             createAttribute.Show();
         }
 
+        private void modifyObject_Click(object sender, EventArgs e)
+        {
+            var modObject = new modifyObject();
+            modObject.Show();
+        }
+
+        private void sendMail_Click(object sender, EventArgs e)
+        {
+            SendMail();
+        }
+
         private void removeReg_Click(object sender, EventArgs e)
         {
             var regEdit = new regEditor();
             regEdit.Show();
+        }
+
+        public void SendMail()
+        {
+            string body = File.ReadAllText("E:\\API\\testdemo.txt");
+
+            /*var smtpClient = new System.Net.Mail.SmtpClient("smtp.gmail.com")
+            {
+                Port = 587,
+                Credentials = new NetworkCredential("admptester@gmail.com", "hvyhiouqmezducvz"),
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                EnableSsl = true,
+                Timeout = 50000
+            };
+
+            smtpClient.Send("admptester@gmail.com", "admptestware@zohomail.in", "subject", body);*/
+
+            //Basic authentication
+            NetworkCredential credential = new NetworkCredential("autoqa\\Administrator", "Vembu@123new");
+
+            //Windows Integrated Authentication
+            //ICredentials credential = CredentialCache.DefaultCredentials;
+
+            Service service = new Service("https://autoqa-ex13/ews/Exchange.asmx", credential);
+           try
+            {
+                Message message = new Message();
+                message.Subject = "WPFTest1";
+                message.Body = new Body(body);
+                message.ToRecipients.Add(new Mailbox("Administrator@autoqa.com"));
+
+                ItemInfoResponse response = service.Send(message);
+                MessageBox.Show("Done");
+            }
+            catch (ServiceRequestException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                Console.WriteLine("Error: " + ex.XmlMessage);
+                Console.Read();
+            }
+            catch (WebException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                Console.Read();
+            }
         }
     }
 }
